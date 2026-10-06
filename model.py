@@ -12,14 +12,7 @@ import numpy as np
 def init_q_table(num_states, num_actions):
     """Return a zero-initialized Q-table of shape (num_states, num_actions)."""
     # TODO: build a 2D float64 numpy array of zeros sized by states and actions.
-    # result = []
-    # for i in range(num_states):
-    #     row = []
-    #     for j in range(num_actions):
-    #         row.append(0.0)
-    #     result.append(row)
-    # return np.array(result)
-        
+
     return np.zeros((num_states,num_actions), dtype=np.float64)
 
 # Step 2 - max_q_value
