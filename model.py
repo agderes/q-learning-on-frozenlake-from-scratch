@@ -127,8 +127,14 @@ seed=0, max_steps=200):
         episode_results.append(total)
     return q_table, episode_results
 
-# Step 14 - extract_greedy_policy (not yet solved)
-# TODO: implement
+# Step 14 - extract_greedy_policy
+def extract_greedy_policy(q_table):
+    # TODO: return a 1D int64 array 
+    #mapping each state to its best (argmax) action.
+    result=[]
+    for state in range(len(q_table)):
+        result.append(greedy_action(q_table,state))
+    return np.array(result)
 
 # Step 15 - run_greedy_episode (not yet solved)
 # TODO: implement
