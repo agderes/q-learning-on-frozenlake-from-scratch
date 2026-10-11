@@ -129,15 +129,24 @@ seed=0, max_steps=200):
 
 # Step 14 - extract_greedy_policy
 def extract_greedy_policy(q_table):
-    # TODO: return a 1D int64 array 
-    #mapping each state to its best (argmax) action.
     result=[]
     for state in range(len(q_table)):
         result.append(greedy_action(q_table,state))
-    return np.array(result)
+    return np.array(result, dtype= np.int64)
 
-# Step 15 - run_greedy_episode (not yet solved)
-# TODO: implement
+# Step 15 - run_greedy_episode
+def run_greedy_episode(env, policy, seed=None, max_steps=200):
+    """Run one greedy episode and return True if the goal was reached."""
+    # TODO: reset env, follow policy[state] each step, return bool(success)
+    state, info = env.reset(seed= seed)
+    reward = 0.0
+    for step in range(max_steps):
+        action = int(policy[state])
+        state,reward,terminated,truncated, info = env.step(action)
+        
+        if terminated or truncated:
+            break
+    return bool(reward>0)
 
 # Step 16 - evaluate_success_rate (not yet solved)
 # TODO: implement
