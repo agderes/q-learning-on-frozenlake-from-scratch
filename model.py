@@ -77,8 +77,8 @@ def td_error(target, q_table, state, action):
 # Step 10 - q_learning_update
 def q_learning_update(q_table, state, action, reward, next_state, done, alpha, gamma):
     
-    target = float(td_target(reward, gamma, q_table, next_state, done))
-    error = float(td_error(target, q_table, state,action))
+    target = td_target(reward, gamma, q_table, next_state, done)
+    error = td_error(target, q_table, state,action)
     q_table[state, action] = q_table[state,action] + (alpha *error)
     return float(q_table[state,action])
 
