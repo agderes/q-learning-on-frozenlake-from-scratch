@@ -45,8 +45,17 @@ def should_explore(epsilon, rng):
     u = rng.random()
     return bool(epsilon>u)
 
-# Step 6 - epsilon_greedy_action (not yet solved)
-# TODO: implement
+# Step 6 - epsilon_greedy_action
+import numpy as np
+
+def epsilon_greedy_action(q_table, state, epsilon, action_space, rng):
+    
+    if should_explore(epsilon,rng):
+        return sample_random_action(action_space)
+    
+    row = q_table[state]
+    best = np.flatnonzero(row == max(row))
+    return int(rng.choice(best))
 
 # Step 7 - decay_epsilon (not yet solved)
 # TODO: implement
